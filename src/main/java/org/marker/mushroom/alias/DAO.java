@@ -47,4 +47,8 @@ public interface DAO {
 	
 	/** 分类 DaoBean */
 	String CATEGORY = "categoryDao";
+
+
+    /** 分类 DaoBean */
+    String SLIDE = "slideDao";
 }
