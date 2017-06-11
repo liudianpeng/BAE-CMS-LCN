@@ -13,15 +13,33 @@
 	
 
  	<!-- EhCache library setup -->
-	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
-		p:config-location="classpath:config/cache/ehcache.xml" p:shared="true"/>
-  	
- 	
- 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" 
- 		p:cache-manager-ref="ehcache"/>
+	<!--<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" -->
+		<!--p:config-location="classpath:config/cache/ehcache.xml" p:shared="true"/>-->
+  	<!---->
+ 	<!---->
+ 	<!--<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" -->
+ 		<!--p:cache-manager-ref="ehcache"/>-->
 
 
 
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+					<property name="name" value="default"/>
+				</bean>
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+					<property name="name" value="channelCache"/>
+				</bean>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <property name="name" value="channelCache"/>
+                </bean>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <property name="name" value="staticHtmlCache"/>
+                </bean>
+			</set>
+		</property>
+	</bean>
 
 
 

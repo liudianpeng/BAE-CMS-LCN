@@ -1,11 +1,13 @@
 package org.marker.mushroom.listener;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -14,7 +16,7 @@ import org.apache.commons.logging.LogFactory;
  * */
 public class SessionCounter implements HttpSessionListener { 
     
-	private final Log log = LogFactory.getLog(SessionCounter.class);
+	private final Logger log = LoggerFactory.getLogger(SessionCounter.class);
 	
 	
 	/** Session个数代码${sessions} */

@@ -30,6 +30,7 @@ import org.marker.mushroom.utils.HttpUtils;
 import org.marker.urlrewrite.URLRewriteEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.util.StringUtils;
 
@@ -68,7 +69,7 @@ public class SystemCoreFilter implements Filter {
 	
 	
 	// 缓存管理器
-	private EhCacheCacheManager cacheManager;
+	private CacheManager cacheManager;
 	
 	
 	@Override
@@ -219,6 +220,5 @@ public class SystemCoreFilter implements Filter {
 	public void destroy() {
 		logger.info("mrcms system filter destroying...");
 		logger.info("mrcms Cache stoping...");
-		cacheManager.getCacheManager().shutdown();
 	}
 }
